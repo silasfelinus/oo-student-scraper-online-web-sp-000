@@ -20,12 +20,14 @@ class Scraper
     student_hash = {}
     student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.vitals-container").css("div.social-icon-container")
     binding.pry
+=begin
     student_twitter =
     student_linkedin =
     student_github =
     student_blog =
     student_profile_quote =
     student_bio =
+=end
 
   end
 
