@@ -11,6 +11,7 @@ class Scraper
       student_hash = {"name" => student_name, "location" => student_location}
       student_array << student_hash
     end
+    binding.pry
     student_array
   end
 
