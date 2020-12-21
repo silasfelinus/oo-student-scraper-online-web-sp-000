@@ -9,6 +9,7 @@ class Scraper
     Nokogiri::HTML(URI.open(index_url)).css("div.roster-cards-container").css("div.student-card").css("div.card-text-container").each do |student|
       student_name =  student.css("h4.student-name").text
       student_location = student.css("p.student-location").text
+      student_profile_url = student.css("a").text
       student_hash = {:name => student_name, :location => student_location}
       student_array << student_hash
     end
