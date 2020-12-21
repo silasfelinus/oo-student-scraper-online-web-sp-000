@@ -19,8 +19,9 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     student_hash = {}
     student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.vitals-container").css("div.social-icon-container")
-    binding.pry
+
     student_twitter = student_data.css("a")[0]["href"]
+
     student_linkedin = student_data.css("a")[0]["href"]
     student_github = student_data.css("a")[0]["href"]
     student_blog = student_data.css("a")[0]["href"]
