@@ -2,6 +2,7 @@ require 'open-uri'
 require 'pry'
 
 class Scraper
+  attr_accessor :name, :location
 
   def self.scrape_index_page(index_url)
     student_array = []
