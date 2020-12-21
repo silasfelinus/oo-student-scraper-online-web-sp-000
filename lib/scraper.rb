@@ -10,7 +10,7 @@ class Scraper
       student_name =  student.css("h4.student-name").text
       student_location = student.css("p.student-location").text
       student_profile_url = student.css("a").text
-      student_hash = {:name => student_name, :location => student_location}
+      student_hash = {:name => student_name, :location => student_location, :profile_url => student_profile_url}
       student_array << student_hash
     end
     student_array
