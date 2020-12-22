@@ -42,7 +42,7 @@ class Scraper
     if link["href"].include?("youtube")
       student_youtube = link["href"]
     end
-    if link["href"].include?("blog")
+    if link.css("img.social-icon")[0].attributes['src'].value.include?("rss")
       student_blog = link["href"]
     end
 
