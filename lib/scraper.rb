@@ -39,8 +39,8 @@ class Scraper
     end
     if link["href"].include?("youtube")
       student_youtube = link["href"]
-  end
-
+    end
+end
 
     student_profile_quote = student_data.css("div.vitals-container").css("div.vitals-text-container").css("div.profile-quote").text
     student_bio = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.details-container").css("div.bio-block.details-block")
