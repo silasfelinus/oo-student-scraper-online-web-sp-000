@@ -26,7 +26,7 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
-    attributes_hash.each {|attribute| attributes_hash[attribute[0]] = attribute[1]]}
+    attributes_hash.each {|attribute| attributes_hash[attribute[0]] = attribute[1]}
   end
 
   def self.all
