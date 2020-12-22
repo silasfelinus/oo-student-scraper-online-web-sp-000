@@ -26,20 +26,19 @@ class Scraper
     student_blog = ""
 
     #Work throguh array of social media urls
-    student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a")["href"].each do |link|
-      binding.pry
+    student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a").each do |link|
+
+    if link["href"].include?("twitter")
+      student_twitter = link["href"]
     end
-    if student_urls.css("a")[0]
-      student_twitter = student_urls.css("a")[0]["href"]
+    if link["href"].include?("twitter")
+      student_linkedin = link["href"]
     end
-    if student_urls.css("a")[1]
-      student_linkedin = student_urls.css("a")[1]["href"]
+    if link["href"].include?("twitter")
+      student_github = link["href"]
     end
-    if student_urls.css("a")[2]
-      student_github = student_urls.css("a")[2]["href"]
-    end
-    if student_urls.css("a")[3]
-      student_blog = student_urls.css("a")[3]["href"]
+    if link["href"].include?("twitter")
+      student_blog = link["href"]
   end
 
 
