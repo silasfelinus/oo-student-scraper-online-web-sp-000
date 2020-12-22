@@ -39,7 +39,6 @@ class Scraper
     if link.css("img.social-icon")[0].attributes['src'].value.include?("rss")
       student_hash[:blog] = link["href"]
     end
-    student_hash
 end
 
 
