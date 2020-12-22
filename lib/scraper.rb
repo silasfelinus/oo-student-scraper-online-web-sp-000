@@ -23,7 +23,6 @@ class Scraper
     student_twitter = ''
     student_linkedin = ""
     student_github = ""
-    student_youtube = ""
     student_blog = ""
 
     #Work throguh array of social media urls
@@ -38,9 +37,6 @@ class Scraper
     if link["href"].include?("github")
       student_github = link["href"]
     end
-    if link["href"].include?("youtube")
-      student_youtube = link["href"]
-    end
     if link.css("img.social-icon")[0].attributes['src'].value.include?("rss")
       student_blog = link["href"]
     end
@@ -51,7 +47,7 @@ end
     student_bio = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.details-container").css("div.bio-block.details-block")
       .css("div.bio-content.content-holder").css("div.description-holder").css("p").text
       binding.pry
-      student_hash = {:twitter => student_twitter, :linkedin => student_linkedin, :github => student_github, :youtube =>student_youtube, :profile_quote => student_profile_quote, :bio => student_bio, :blog => student_blog}
+      student_hash = {:twitter => student_twitter, :linkedin => student_linkedin, :github => student_github, :profile_quote => student_profile_quote, :bio => student_bio, :blog => student_blog}
   end
 
 end
