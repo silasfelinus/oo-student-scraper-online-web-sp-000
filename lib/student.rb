@@ -26,10 +26,7 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
-    attributes_hash.each {|attribute| binding.pry attributes_hash[attribute]}
-
-
-
+    attributes_hash.each {|attribute| attributes_hash[attribute[0]] = attribute.value}
   end
 
   def self.all
