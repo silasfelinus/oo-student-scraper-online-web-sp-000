@@ -44,7 +44,7 @@ class Scraper
     if link["href"].include?("blog")
       student_blog = link["href"]
     end
-    
+
 end
 
     student_profile_quote = student_data.css("div.vitals-container").css("div.vitals-text-container").css("div.profile-quote").text
