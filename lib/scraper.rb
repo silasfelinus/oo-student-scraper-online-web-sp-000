@@ -18,18 +18,18 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     student_hash = {}
-    student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.vitals-container")
+    student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile")
+    student_urls = student_data.css("div.vitals-container").css("div.social-icon-container")
+    student_twitter = student_urls.css("a")[0]["href"]
+    student_linkedin = student_urls.css("a")[1]["href"]
+    student_github = student_urls.css("a")[2]["href"]
+    student_blog = student_urls.css("a")[3]["href"]
 
-    student_twitter = student_data.css("div.social-icon-container").css("a")[0]["href"]
 
-    student_linkedin = student_data.css("div.social-icon-container").css("a")[1]["href"]
-    student_github = student_data.css("div.social-icon-container").css("a")[2]["href"]
-    student_blog = student_data.css("div.social-icon-container").css("a")[3]["href"]
-
-
-    student_profile_quote = student_data.css("a")[0]["href"]
-    student_bio = student_data.css("a")[0]["href"]
-
+    student_profile_quote = student_data.css("div.vitals-container").css("div.vitals-text-container").css("div.profile-quote")
+    student_bio = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.details-container").css("div.bio-block.details-block")
+      .css("div.bio-content.content-holder").css("div description-holder p").text
+      student_hash{:twitter => student_twitter, :linkedin => student_linkedin, :github => student_github, :blog =>student_blog, :profile_quote => student_profile_quote, :bio => student_bio}
   end
 
 end
