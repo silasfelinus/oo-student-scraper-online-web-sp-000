@@ -23,16 +23,16 @@ class Scraper
     student_linkedin = ""
     student_github = ""
     student_blog = ""
-    if student_urls.css("a")[0]["href"]
+    if student_urls.css("a")[0]
       student_twitter = student_urls.css("a")[0]["href"]
     end
-    if student_urls.css("a")[1]["href"]
+    if student_urls.css("a")[1]
       student_linkedin = student_urls.css("a")[1]["href"]
     end
-    if student_urls.css("a")[2]["href"]
+    if student_urls.css("a")[2]
       student_github = student_urls.css("a")[2]["href"]
     end
-    if student_urls.css("a")[3]["href"]
+    if student_urls.css("a")[3]
       student_blog = student_urls.css("a")[3]["href"]
   end
 
