@@ -19,34 +19,30 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile")
 
-    #initialize social media links
-    student_twitter = ''
-    student_linkedin = ""
-    student_github = ""
-    student_blog = ""
+    student_profile_quote = student_data.css("div.vitals-container").css("div.vitals-text-container").css("div.profile-quote").text
+    student_bio = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.details-container").css("div.bio-block.details-block")
+      .css("div.bio-content.content-holder").css("div.description-holder").css("p").text
+      student_hash = {:profile_quote => student_profile_quote, :bio => student_bio}
 
     #Work throguh array of social media urls
     student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a").each do |link|
 
     if link["href"].include?("twitter")
-      student_twitter = link["href"]
+      student_hash[:twitter] = link["href"]
     end
     if link["href"].include?("linkedin")
-      student_linkedin = link["href"]
+      student_hash[:linkedin] = link["href"]
     end
     if link["href"].include?("github")
-      student_github = link["href"]
+      student_hash[:github] = link["href"]
     end
     if link.css("img.social-icon")[0].attributes['src'].value.include?("rss")
-      student_blog = link["href"]
+      student_hash[:blog] = link["href"]
     end
 
 end
 
-    student_profile_quote = student_data.css("div.vitals-container").css("div.vitals-text-container").css("div.profile-quote").text
-    student_bio = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile").css("div.details-container").css("div.bio-block.details-block")
-      .css("div.bio-content.content-holder").css("div.description-holder").css("p").text
-      student_hash = {:twitter => student_twitter, :linkedin => student_linkedin, :github => student_github, :profile_quote => student_profile_quote, :bio => student_bio, :blog => student_blog}
+
   end
 
 end
