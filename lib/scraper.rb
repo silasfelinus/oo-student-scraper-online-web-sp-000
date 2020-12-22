@@ -31,10 +31,10 @@ class Scraper
     if link["href"].include?("twitter")
       student_twitter = link["href"]
     end
-    if link["href"].include?("twitter")
+    if link["href"].include?("linkedin")
       student_linkedin = link["href"]
     end
-    if link["href"].include?("twitter")
+    if link["href"].include?("github")
       student_github = link["href"]
     end
     if link["href"].include?("twitter")
