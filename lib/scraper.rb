@@ -28,6 +28,7 @@ class Scraper
 
     #Work throguh array of social media urls
     student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a").each do |link|
+      binding.pry
 
     if link["href"].include?("twitter")
       student_twitter = link["href"]
@@ -42,7 +43,6 @@ class Scraper
       student_youtube = link["href"]
     end
     if link["href"].include?("blog")
-      binding.pry
       student_blog = link["href"]
     end
 
