@@ -42,6 +42,7 @@ class Scraper
       student_youtube = link["href"]
     end
     if link["href"].include?("blog")
+      binding.pry
       student_blog = link["href"]
     end
 
