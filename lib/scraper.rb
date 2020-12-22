@@ -26,7 +26,7 @@ class Scraper
     student_blog = ""
 
     #Work throguh array of social media urls
-    student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a").each do |link|
+    student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a")["href"].each do |link|
       binding.pry
     end
     if student_urls.css("a")[0]
