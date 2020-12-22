@@ -19,12 +19,7 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     student_data = Nokogiri::HTML(URI.open(profile_url)).css("div.main-wrapper.profile")
 
-    #initialize social media links
-    student_twitter = ""
-    student_linkedin = ""
-    student_github = ""
-    student_youtube = ""
-    student_blog = ""
+
 
     #Work throguh array of social media urls
     student_urls = student_data.css("div.vitals-container").css("div.social-icon-container").css("a").each do |link|
