@@ -41,9 +41,5 @@ class Scraper
     end
   end
     student_hash
-end
-
-
   end
-
 end
